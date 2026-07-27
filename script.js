@@ -48,6 +48,7 @@ signupForm.addEventListener('submit', async (event) => {
   const selectedType = document.querySelector('.type-chip.active')?.dataset.type || 'employee';
   const name = formData.get('name');
   const email = formData.get('email');
+  const password = formData.get('password');
   const displayName = name ? String(name).trim() : 'friend';
   const displayEmail = email ? String(email).trim() : 'your email address';
 
@@ -58,6 +59,7 @@ signupForm.addEventListener('submit', async (event) => {
       body: JSON.stringify({
         name: displayName,
         email: displayEmail,
+        password: password ? String(password) : '',
         accountType: selectedType
       })
     });

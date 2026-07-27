@@ -1,0 +1,14 @@
+{
+  "name": "lingoenglish",
+  "version": "1.0.0",
+  "description": "Local preview server for LINGOENGLISH with confirmation email sending",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.2",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.2"
+  }
+}

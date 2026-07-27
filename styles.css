@@ -183,10 +183,34 @@ textarea:focus {
 }
 
 .success-message {
-  min-height: 22px;
-  margin-top: 10px;
+  min-height: 44px;
+  margin-top: 12px;
+}
+
+.confirmation-card {
+  padding: 14px;
+  border-radius: 12px;
+  background: #f1f9ff;
   color: var(--primary-dark);
-  font-weight: 600;
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
+.confirmation-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+}
+
+.confirmation-card p {
+  margin: 0 0 6px;
+}
+
+.confirmation-card strong {
+  color: var(--text);
 }
 
 @media (max-width: 860px) {

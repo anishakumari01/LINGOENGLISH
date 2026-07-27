@@ -42,12 +42,43 @@ profilePicInput.addEventListener('change', (event) => {
   reader.readAsDataURL(file);
 });
 
-signupForm.addEventListener('submit', (event) => {
+signupForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const formData = new FormData(signupForm);
-  const selectedType = document.querySelector('.type-chip.active').dataset.type;
+  const selectedType = document.querySelector('.type-chip.active')?.dataset.type || 'employee';
   const name = formData.get('name');
-  successMessage.textContent = `Thanks, ${name || 'friend'}! Your ${selectedType} account request has been received.`;
+  const email = formData.get('email');
+  const displayName = name ? String(name).trim() : 'friend';
+  const displayEmail = email ? String(email).trim() : 'your email address';
+
+  try {
+    const response = await fetch('/send-confirmation', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: displayName,
+        email: displayEmail,
+        accountType: selectedType
+      })
+    });
+
+    const result = await response.json();
+
+    successMessage.innerHTML = `
+      <div class="confirmation-card">
+        <p class="confirmation-title">Confirmation email status</p>
+        <p>Hi <strong>${displayName}</strong>,</p>
+        <p>${result.message || 'Your confirmation email request was received.'}</p>
+      </div>
+    `;
+  } catch (error) {
+    successMessage.innerHTML = `
+      <div class="confirmation-card">
+        <p class="confirmation-title">Confirmation email status</p>
+        <p>We could not send the confirmation email right now.</p>
+      </div>
+    `;
+  }
 });
 
 updateForm('employee');

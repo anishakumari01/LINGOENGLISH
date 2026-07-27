@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LingoEnglish Signup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="home.html" class="brand">LINGOENGLISH</a>
+      <a class="nav-link" href="index.html">About Us</a>
+    </header>
+    <div class="page-shell">
+      <section class="hero-card">
+        <div class="hero-copy">
+          <p class="eyebrow">LingoEnglish Community</p>
+          <h1>Create your account</h1>
+          <p>
+            Connect with learners, volunteers, and professionals to build confidence in English and
+            share language skills.
+          </p>
+        </div>
+
+        <div class="signup-card">
+          <div class="account-picker" role="tablist" aria-label="Choose account type">
+            <button class="type-chip active" data-type="employee" type="button">
+              Employee Account
+            </button>
+            <button class="type-chip" data-type="volunteer" type="button">
+              Volunteer Account
+            </button>
+            <button class="type-chip" data-type="student" type="button">
+              Student Account
+            </button>
+          </div>
+
+          <form id="signupForm">
+            <div class="section-title">
+              <h2>Account details</h2>
+              <p id="formHint">You are signing up as an employee.</p>
+            </div>
+
+            <div class="form-grid">
+              <label>
+                Full name
+                <input type="text" name="name" placeholder="Enter your full name" required />
+              </label>
+
+              <label>
+                Age
+                <input type="number" name="age" min="1" max="120" placeholder="e.g. 24" required />
+              </label>
+
+              <label>
+                Email address
+                <input type="email" name="email" placeholder="name@example.com" required />
+              </label>
+
+              <label>
+                Phone number
+                <input type="tel" name="phone" placeholder="e.g. +1 555 123 4567" required />
+              </label>
+            </div>
+
+            <div id="employeeRoleBlock" class="extra-field visible">
+              <label>
+                Role in the company
+                <input type="text" name="role" placeholder="e.g. Marketing Coordinator" />
+              </label>
+            </div>
+
+            <div class="profile-upload">
+              <label for="profilePic">Upload profile picture</label>
+              <input type="file" id="profilePic" accept="image/*" />
+              <img id="profilePreview" alt="Profile preview" hidden />
+            </div>
+
+            <div id="languageBlock" class="extra-field">
+              <label for="languages">
+                Languages you are proficient in and your level for each
+              </label>
+              <textarea
+                id="languages"
+                name="languages"
+                rows="4"
+                placeholder="Example: English - Advanced, Spanish - Intermediate, French - Beginner"
+              ></textarea>
+            </div>
+
+            <button class="submit-btn" type="submit">Create account</button>
+            <p id="successMessage" class="success-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

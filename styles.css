@@ -259,6 +259,22 @@ textarea:focus {
   color: var(--primary);
 }
 
+/* Right-aligned navigation with spacing */
+.topbar nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.topbar .nav-link {
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.topbar .nav-link:hover {
+  background: rgba(77,163,255,0.08);
+}
+
 .page {
   min-height: calc(100vh - 80px);
   display: grid;
